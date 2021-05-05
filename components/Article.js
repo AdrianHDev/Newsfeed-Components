@@ -126,6 +126,10 @@ const articleMaker = (articleObject) => {
 
   <span class="expandButton">+</span>
 </div>`
+  let button = articleElement.querySelector('.expandButton')
+  button.addEventListener('click', (ev) => {
+    button.parentElement.classList.toggle('article-open')
+  })
   return articleElement
 }
 
@@ -134,5 +138,12 @@ let articlesDiv = document.querySelector('.articles');
 
 data.forEach((article) => {
   articlesDiv.appendChild(articleMaker(article));
-  
-})
+});
+
+articlesDiv.appendChild(articleMaker({
+  title: 'Lol',
+  date: 'Jan 20th 2021',
+  firstParagraph: 'yep',
+  secondParagraph: 'nope',
+  thirdParagraph: 'why?',
+}));
