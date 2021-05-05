@@ -117,15 +117,14 @@ const data = [
 
 const articleMaker = (articleObject) => {
   let articleElement = document.createElement('div');
-  articleElement.innerHTML = `<div class="article">
-  <h2>${articleObject.title}</h2>
+  articleElement.classList.toggle('article');
+  articleElement.innerHTML = `<h2>${articleObject.title}</h2>
   <p class="date">${articleObject.date}</p>
   <p>${articleObject.firstParagraph}</p>
   <p>${articleObject.secondParagraph}</p>
   <p>${articleObject.thirdParagraph}</p>
 
-  <span class="expandButton">+</span>
-</div>`
+  <span class="expandButton">+</span>`
   let button = articleElement.querySelector('.expandButton')
   button.addEventListener('click', (ev) => {
     button.parentElement.classList.toggle('article-open')
